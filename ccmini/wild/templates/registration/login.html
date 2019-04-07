@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>WildLife</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../static/css/wtasgn1.css">
+        
+        <script type="text/javascript"> function validate()
+        {
+            var x= document.forms["myForm"]["username"].value;
+            var y= document.forms["myForm"]["password"].value;
+            if(x ==="")
+            {
+                alert("All fields must be specified");
+                return false;
+            }
+          
+                        if(y ==="")
+            {
+                alert("Password must be supplied");
+                return false;
+            }
+        }
+        
+        function myfunction1(image){
+            var middleimage=document.getElementById("middle").src;
+            var imagesrc=image.src;
+            
+            var temp=imagesrc;
+            image.src=middleimage;
+            document.getElementById("middle").src=temp;
+            
+        }
+    </script>
+    </head>
+    <body style="background-color: black;">
+        <div class="background">
+            
+            <div class=header>
+<center>
+<h1 style="align: center; color: white" >
+WILDLIFE
+</h1>
+</center>
+</div>
+            
+        <div>
+            <ul>
+                <li class="dropdown left"><a href="#" class="dropbtn">Take Tour</a>
+                <div class="dropdown-content">
+                    <a href="https://www.elephantnaturepark.org/" target="_blank"> Elephant Nature Park (Thailand) </a>
+                    <a href="https://koala.net/en-au/" target="_blank"> Lone Pine Koala Sanctuary - Australia </a>
+                    <a href="https://www.bandhavgarh-national-park.com/" target="_blank"> Bandhavgarh National Park, Madhya Pradesh </a>
+                </div>
+                </li>
+                <li class="floatleft"><a href="">Home</a></li>
+                <li class="floatright"><a href="">Contact</a></li>
+                <li class="floatright"><a href="">About</a></li>
+            </ul>
+        </div>
+ 
+        <div class="row">
+ 
+<div class="column" style="background-transparent">
+ <div class="floatleft">
+        <img onclick="myfunction1(this)" class="image1" src="../../static/images/wl1.jpg">
+        <img onclick="myfunction1(this)" class="image2" src="../../static/images/wl2.jpg"><br>
+        <img onclick="myfunction1(this)" id="middle" class="image3" src="../../static/images/wl3.jpg">
+        <img onclick="myfunction1(this)" class="image4" src="../../static/images/wl4.jpg" height="100"><br>
+        <img onclick="myfunction1(this)" class="image5" src="../../static/images/wl5.jpg" height="100">
+</div>
+</div>
+        
+    <div class="column" >
+            
+            <form method="post" action="{% url 'wild:welcome' %}" style="background-image:url('../../static/images/login.jpg'); background-repeat: no-repeat; background-size: cover;" name="myForm" class="divform floatright" onsubmit="return validate()">
+            {% csrf_token %}
+                Username: <input type="text" name="username" placeholder="Username">
+                Password: <input type="password" name="password" placeholder="Password">
+                <div class="container">
+                <div class="button1">
+                   <input type="submit" value="Login" onsubmit="return validate()">
+                </div>
+                   <div class="button2">
+                   <a href="{% url 'wild:signup' %}"> Sign Up</a>
+                </div>	
+                </div>
+            </form>
+        
+       
+        </div>
+      
+       
+        </div>
+         <div class="row" style="margin-left: 400px;">
+            <video height="750" width="750" controls>
+            <source src="../../static/images/wl6.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        
+                <div>
+            <div class="zoom inorder">
+            <a href="https://www.twitter.com"><img class="resize " src="../../static/images/twiter.jpg" alt=""></a>
+            </div>
+            <div class="inorder zoom">
+                <a href="https://www.facebook.com"><img class="resize " src="../../static/images/fb.png" alt=""></a>
+            
+                </div>
+            <div class="inorder zoom">
+            <a href="https://www.instagram.com"><img class="resize " src="../../static/images/insta.jpg" alt=""></a>
+            </div>
+            <div class="inorder zoom">
+            <a href="https://www.youtube.com"><img class="resize " src="../../static/images/twiter.jpg" alt=""></a>
+            </div>
+        </div>
+       
+       </div>
+        
+
+        <footer class="Footer" style="float:right; "><center>
+  <p>Copyright © Wildlife. All Rights Reserved</p></center>
+</footer>
+
+    </body>
+</html>

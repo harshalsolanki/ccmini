@@ -1,0 +1,15 @@
+<html>
+<head> <h1> Home Page </h1></head>
+<body background="../../static/images/w12.jpg">
+<h3>Welcome {{ name }}</h3>
+
+<h4>My Tours</h4>
+<ol>
+{% for tour in tours%}
+	<li>{{ tour }}</li>
+{% endfor %}
+</ol>
+</body>
+</html>
+
+
